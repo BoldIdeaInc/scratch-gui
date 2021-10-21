@@ -1,4 +1,17 @@
-# scratch-gui
+# scratch-gui (Bold Idea fork)
+## About this fork
+This is a fork of [LLK/scratch-gui](https://github.com/LLK/scratch-gui)
+with the intention of being a standalone .sb3 player. While this still
+contains most of the scratch GUI components, it has been stripped down
+to the bare essentials.
+
+The main differences are:
+
+- The default project loads from the `project` subdirectory.
+- Loading by scratch project id is disabled
+- Tutorials / decks / cards removed to reduce overall build size
+
+
 #### Scratch GUI is a set of React components that comprise the interface for creating and running Scratch 3.0 projects
 
 ## Installation
