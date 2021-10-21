@@ -11,6 +11,8 @@ The main differences are:
 - Loading by scratch project id is disabled
 - Tutorials / decks / cards removed to reduce overall build size
 
+Run `npm run build-prod` to output a minimal build to the `build/`
+directory.
 
 #### Scratch GUI is a set of React components that comprise the interface for creating and running Scratch 3.0 projects
 
