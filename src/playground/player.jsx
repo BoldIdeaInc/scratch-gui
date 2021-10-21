@@ -19,12 +19,13 @@ if (process.env.NODE_ENV === 'production' && typeof window === 'object') {
 
 import styles from './player.css';
 
-const Player = ({isPlayerOnly, onSeeInside, projectId}) => (
+const Player = ({isPlayerOnly, isFullScreen, onSeeInside, projectId}) => (
     <Box className={classNames(isPlayerOnly ? styles.stageOnly : styles.editor)}>
         {isPlayerOnly && <button onClick={onSeeInside}>{'See inside'}</button>}
         <GUI
             canEditTitle
             enableCommunity
+            isFullScreen={isFullScreen}
             isPlayerOnly={isPlayerOnly}
             projectId={projectId}
         />
@@ -32,12 +33,14 @@ const Player = ({isPlayerOnly, onSeeInside, projectId}) => (
 );
 
 Player.propTypes = {
+    isFullScreen: PropTypes.bool,
     isPlayerOnly: PropTypes.bool,
     onSeeInside: PropTypes.func,
     projectId: PropTypes.string
 };
 
 const mapStateToProps = state => ({
+    isFullScreen: state.scratchGui.mode.isFullScreen,
     isPlayerOnly: state.scratchGui.mode.isPlayerOnly
 });
 
@@ -61,4 +64,4 @@ const WrappedPlayer = compose(
 const appTarget = document.createElement('div');
 document.body.appendChild(appTarget);
 
-ReactDOM.render(<WrappedPlayer isPlayerOnly />, appTarget);
+ReactDOM.render(<WrappedPlayer isPlayerOnly isFullScreen />, appTarget);

@@ -37,9 +37,12 @@ const HashParserHOC = function (WrappedComponent) {
             window.removeEventListener('hashchange', this.handleHashChange);
         }
         handleHashChange () {
-            const hashMatch = window.location.hash.match(/#(\d+)/);
-            const hashProjectId = hashMatch === null ? defaultProjectId : hashMatch[1];
-            this.props.setProjectId(hashProjectId.toString());
+            /**
+             * Overriding this to just always load project id "1"
+             */
+            //const hashMatch = window.location.hash.match(/#(\d+)/);
+            //const hashProjectId = hashMatch === null ? defaultProjectId : hashMatch[1];
+            this.props.setProjectId('1');
         }
         render () {
             const {
